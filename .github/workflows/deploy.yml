@@ -20,15 +20,15 @@ jobs:
     steps:
       - name: 获取源码
         uses: actions/checkout@v4
+      - name: 配置 pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
       - name: 配置 Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
-      - name: 配置 pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
       - name: 安装依赖
         run: pnpm install --frozen-lockfile
       - name: 构建网站
